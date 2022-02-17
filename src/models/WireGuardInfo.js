@@ -1,5 +1,5 @@
 export default class WireGuardInfo{
-    id;
+    id=0;
     clientName;
     ipAddress;
     dateAdded;
