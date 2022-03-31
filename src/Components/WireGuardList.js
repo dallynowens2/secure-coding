@@ -21,7 +21,9 @@ const WireGuardList = () => {
         <span>{wg.id}</span>
         <span>{wg.clientName}</span>
         <span>{wg.ipAddress}</span>
+        <button>Revoke</button>
       </div>
+      
     );
   });
   return <div>{wireGuardList}</div>;
