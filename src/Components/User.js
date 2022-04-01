@@ -27,7 +27,6 @@ function User() {
         
      })();
      setCurUser(wireGuardService.getUserInfo(user.email))
-     console.log(curUser)
    }, [])
 
   const toppingChangeHandler = (e) =>{

@@ -13,7 +13,6 @@ const LoginLogout = () => {
               audience: 'https://secure/api',
               scope: 'read:userInfo, post:userInfo',
             });
-            console.log(token)
     }catch (e) {
         console.error(e);
       }
