@@ -14,7 +14,7 @@ function App() {
     <div className="App">
       <Routes>
         <Route path="/" element={<LoginLogout />} />
-        <Route path="secure" element={<ProtectedRoute  component={User}/>}/>
+        <Route path="/secure" element={<ProtectedRoute  component={User}/>}/>
       </Routes>
     </div>
   );

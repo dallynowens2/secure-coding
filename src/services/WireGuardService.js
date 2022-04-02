@@ -2,7 +2,7 @@ import axios from "axios";
 import WireGuardInfo from "../models/WireGuardInfo";
 import UserInfo from "../models/UserInfo";
 const url = "https://localhost:44386/api/wireguard";
-const url2 = "https://localhost:44386/api/UserModel";
+const url2 = "https://dallyndev.duckdns.org/api/UserModel";
 
 const getWireGuardInfo = async () => {
   const res = await axios.get(url);
