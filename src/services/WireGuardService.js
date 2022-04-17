@@ -3,6 +3,8 @@ import WireGuardInfo from "../models/WireGuardInfo";
 import UserInfo from "../models/UserInfo";
 const url = "https://localhost:44386/api/wireguard";
 const url2 = "https://dallyndev.duckdns.org/api/UserModel";
+const commentsUrl = "https://dallyndev.duckdns.org/api/Comments"
+
 
 const getWireGuardInfo = async () => {
   const res = await axios.get(url);
@@ -20,30 +22,40 @@ const addNewUser = async (user) => {
 };
 
 const getUserInfo = async (user, token) => {
+  
+  const headers = {
+    'Content-Type': 'application/json',
+    'Authorization': `Bearer ${token}`
+  }
+
   const res = await axios.get(url2, user.userName, {
-    Headers: {
-      Authorization: `Bearer ${token}`,
-    },
+    Headers: headers,
   });
   return res.data;
 };
 
 const postUserInfo = async (user, token) => {
-  console.log(token);
-  const res = await axios.post(url2, user, {
-    headers: {
-      authorization: `Bearer ${token}`
-    },
-  });
-  console.log(res)
+  const res = await axios.post(url2, user);
   return res.data;
 };
+
+const getComments = async () =>{
+  const res = await axios.get(commentsUrl);
+  return res.data;
+}
+
+const postComments = async (comment) =>{
+  const res = await axios.post(commentsUrl, comment);
+  return res.data;
+}
 
 const wireGuardService = {
   getWireGuardInfo,
   addNewUser,
   getUserInfo,
   postUserInfo,
+  getComments,
+  postComments
 };
 
 export default wireGuardService;

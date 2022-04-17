@@ -2,6 +2,7 @@ import React, {useEffect} from 'react'
 import Login from './Login'
 import Logout from './Logout'
 import { useAuth0 } from "@auth0/auth0-react";
+import Comments from './Comments';
 
 const LoginLogout = () => {
   const { user, getAccessTokenSilently } = useAuth0();
@@ -26,6 +27,7 @@ const LoginLogout = () => {
         {!user ? <h3>Please sign in</h3>: <h3>Hello {user.name}</h3>}
         <Login/>
         {!user ? <div></div>: <Logout/>}
+        <Comments user={user}/>
     </div>
   )
 }
