@@ -19,8 +19,10 @@ const Comments = ({ user }) => {
 
   const submitHandler = (e) => {
     e.preventDefault();
-
+    
     if (comment.length > 1) {
+      comment.replaceAll('<', ' ');
+      comment.replaceAll('>', ' ');
       if (user) {
         const newComment = new Comment(comment, user.name);
         wireGuardService.postComments(newComment);
@@ -42,6 +44,7 @@ const Comments = ({ user }) => {
           type="text"
           style={{ margin: "10px", width: "300px" }}
           onChange={commentChangeHandler}
+          maxLength="500"
         ></input>
         <button type="submit">Post</button>
       </form>
